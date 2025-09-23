@@ -4,7 +4,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Welcome to the Patient Management System!"
+    return "<h1>Welcome to the Patient Management System</h1><p>This is your live homepage.</p>"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Optional: Keep other routes below this if you add more later
