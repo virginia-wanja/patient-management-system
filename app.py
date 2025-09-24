@@ -1,19 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+patients = []
 
-@app.route('/')
-def home():
-    return "<h1>Welcome to the Patient Management System</h1><p>This is your live homepage.</p>"
-
-# Optional: Keep other routes below this if you add more later
-@app.route('/patients')
-def patients():
-    return """
-    <h2>Patient Records</h2>
-    <ul>
-        <li>Jane munene – Age 34 – Diabetes</li>
-        <li>John waithaka – Age 45 – Hypertension</li>
-        <li>Mary Wanjiru – Age 29 – Asthma</li>
-    </ul>
-    """
+@app.route('/', methods=['GET', 'POST'])
+def patients_view():
+    if request.method == 'POST':
+        name = request.form['name']
+        age = request.form['age']
+        condition = request.form['condition']
+        patients.append({"name": name, "age": age, "condition": condition})
+    return render_template('patients.html', patients=patients)

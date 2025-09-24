@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Records</title>
+</head>
+<body>
+    <h2>Patient Records</h2>
+    <ul>
+        {% for patient in patients %}
+            <li>{{ patient.name }} | Age {{ patient.age }} | {{ patient.condition }}</li>
+        {% endfor %}
+    </ul>
+<form method="POST" action="/">
+  <label>Name:</label>
+  <input type="text" name="name" required><br>
+
+  <label>Age:</label>
+  <input type="number" name="age" required><br>
+
+  <label>Condition:</label>
+  <input type="text" name="condition" required><br>
+
+  <button type="submit">Add Patient</button>
+</form>
+</body>
+</html>
