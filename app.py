@@ -10,4 +10,4 @@ def patients_view():
         age = request.form['age']
         condition = request.form['condition']
         patients.append({"name": name, "age": age, "condition": condition})
-    return render_template('patients.html', patients=patients)
+    return render_template('patient.html', patients=patients)
